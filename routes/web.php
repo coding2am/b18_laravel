@@ -2,16 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 //frontend-asset
 // Route::get('/', 'MainController@index')->name('homepage');
 // Route::get('testing', 'MainController@testing')->name('testingpage');
@@ -19,23 +9,27 @@ use Illuminate\Support\Facades\Route;
 // Route::get('contact', 'MainController@contact')->name('contactpage');
 
 //brands
-Route::resource('brand', 'BrandController');  
+Route::resource('brand', 'BrandController');
 
 //categories
-Route::resource('category','CategoryController');  
+Route::resource('category', 'CategoryController');
 
 //subcategories
-Route::resource('subcategory','SubCategoryController');   
+Route::resource('subcategory', 'SubCategoryController');
 
 //item
-Route::resource('item','ItemController');   
+Route::resource('item', 'ItemController');
 
 //frontend-asset
-Route::get('/','FrontendController@index')->name('homepage');
-Route::get('/user_login','FrontendController@login')->name('loginpage');
-Route::get('/user_register','FrontendController@register')->name('registerpage');
-    
+Route::get('/', 'FrontendController@index')->name('homepage');
+Route::get('/user_login', 'FrontendController@login')->name('loginpage');
+Route::get('/user_register', 'FrontendController@register')->name('registerpage');
+Route::get('/item_detail/{id}', 'FrontendController@itemDetail')->name('itemdetail');
+Route::get('itemsBySubCategory/{id}', 'FrontendController@itemsBySubCategory')->name('itemsBySubCategory');
+Route::get('cart', 'FrontendController@cart')->name('cartpage');
+
+//user-controller
+Route::resource('user', 'UserController');
+
 //auth
 Auth::routes(['register' => false]);
-
-

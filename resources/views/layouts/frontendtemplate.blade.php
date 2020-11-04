@@ -16,6 +16,11 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('my_asset/css/shop-homepage.css') }}" rel="stylesheet">
 
+     <!-- Custom CSS -->
+     <link rel="stylesheet" href="{{ asset('my_asset/css/custom.css') }}">
+
+     <!-- Custom CSS -->
+     <link rel="stylesheet" href="{{ asset('my_asset/css/all.min.css') }}">
 </head>
 
 <body>
@@ -60,6 +65,7 @@
                             
                             @if(Auth::user()->getRoleNames()[0] == "admin")
                             <a class="dropdown-item" href="{{ url('/item') }}">Admin Panel</a>
+                            @else
                             @endif
 
                             <a class="dropdown-item" href="{{ route('logout') }}" 
@@ -74,6 +80,12 @@
                         </div>
                     </li>
                     @endguest
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{route('cartpage')}}">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cartNoti badge badge-light badge-pill">0</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -94,6 +106,7 @@
     <!-- Bootstmy_my_asset/vendor/bootstrap/js/bootstrap.bundle.min.jsasset/vendor/bootstrap/js/bootstrap.bundle.min.jsrap core JavaScript -->
     <script src="{{ asset('my_asset/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('my_asset/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('my_asset/js/custom.js') }}"></script>
 
 </body>
 

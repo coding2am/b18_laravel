@@ -43,7 +43,10 @@
                 </div>
 
                 <div class="row">
-                    @foreach ($items as $item)
+                    <div class="col-md-12">
+                    <h5>Sort by <span class="text-dark text-muted">{{$subcategory->name}}</span></h5>
+                    </div>
+                    @foreach ($subcategory->items as $item)
                         {{--item component --}}
                         <x-item-component :item="$item"></x-item-component>
                     @endforeach
@@ -57,6 +60,3 @@
     </div>
 
 @endsection
-
-{{-- @section('script')
-@endsection --}}

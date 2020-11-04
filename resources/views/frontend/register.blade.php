@@ -12,6 +12,8 @@
         </div>
         <div class="col-md-9 register-right mt-5">
             <h3 class="register-heading">Register and explore new things</h3>
+        <form action="{{ route('user.store') }}" method="post">
+            @csrf
             <div class="row register-form">
                 <div class="col-md-6 mt-5">
                     <div class="form-group">
@@ -46,6 +48,7 @@
                     <input type="submit" class="btn btn-success btn-block"  value="Register"/>
                 </div>
             </div>
+           </form>
         </div>
     </div>
 
