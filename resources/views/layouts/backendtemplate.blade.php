@@ -96,7 +96,7 @@
         </div>
       </div>
       <ul class="app-menu">
-        <li><a class="app-menu__item" href="dashboard.html"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+      <li><a class="app-menu__item" href="{{url('/')}}"><i class="app-menu__icon fa fa-globe"></i><span class="app-menu__label">Public Home Page</span></a></li>
         <li><a href="{{ asset(route('brand.index'))}}" class="app-menu__item 
           {{-- brand --}}
           @php

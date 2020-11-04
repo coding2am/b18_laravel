@@ -14,4 +14,13 @@ class Item extends Model
         'discount',
         'description',
     ];
+
+    public function brand()
+    {
+        return $this->belongsTo('App\Brand');
+    }
+    public function subcategory()
+    {
+        return $this->belongsTo('App\SubCategory');
+    }
 }

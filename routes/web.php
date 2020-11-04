@@ -12,14 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', 'MainController@index')->name('homepage');
-
-Route::get('testing', 'MainController@testing')->name('testingpage');
-
-Route::get('about', 'MainController@about')->name('aboutpage');
-
-Route::get('contact', 'MainController@contact')->name('contactpage');
+//frontend-asset
+// Route::get('/', 'MainController@index')->name('homepage');
+// Route::get('testing', 'MainController@testing')->name('testingpage');
+// Route::get('about', 'MainController@about')->name('aboutpage');
+// Route::get('contact', 'MainController@contact')->name('contactpage');
 
 //brands
 Route::resource('brand', 'BrandController');  
@@ -32,3 +29,13 @@ Route::resource('subcategory','SubCategoryController');
 
 //item
 Route::resource('item','ItemController');   
+
+//frontend-asset
+Route::get('/','FrontendController@index')->name('homepage');
+Route::get('/user_login','FrontendController@login')->name('loginpage');
+Route::get('/user_register','FrontendController@register')->name('registerpage');
+    
+//auth
+Auth::routes(['register' => false]);
+
+
