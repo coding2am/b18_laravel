@@ -1,4 +1,4 @@
-<div class="col-lg-4 col-md-6 mb-4">
+<div class="col-lg-4 col-md-6 mb-4 myFont">
     <div class="card h-100">
         <a href="{{ route('itemdetail', $item->id) }}"><img width="200" height="200" style="object-fit: cover;"
                 class="card-img-top img_hover" src="{{ asset($item->photo) }}" alt=""></a>

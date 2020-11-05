@@ -32,7 +32,7 @@ Route::get('cart', 'FrontendController@cart')->name('cartpage');
 Route::resource('user', 'UserController');
 
 //auth
-Auth::routes(['register' => false]);
+Auth::routes();
 
 //order
 Route::resource('order', 'OrderController');

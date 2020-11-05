@@ -27,7 +27,7 @@ class Item extends Model
 
     public function orders()
     {
-        return $this->belongsToMany('App\Orders','orderdetails')
+        return $this->belongsToMany('App\Order','orderdetails')
                     ->withPivot('qty')
                     ->withTimestamps();
     }

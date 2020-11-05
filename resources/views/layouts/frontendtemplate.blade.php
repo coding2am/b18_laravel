@@ -20,45 +20,45 @@
      <!-- Custom CSS -->
      <link rel="stylesheet" href="{{ asset('my_asset/css/custom.css') }}">
 
-     <!-- Custom CSS -->
+     <!-- Fontawesome CSS -->
      <link rel="stylesheet" href="{{ asset('my_asset/css/all.min.css') }}">
 </head>
 
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg mainColor fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Laravel 7 Shopules</a>
+            <a class="navbar-brand text-light myFont" href="#">Laravel 7 Shopules</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto myFont">
                     <li class="nav-item active">
-                    <a class="nav-link" href="{{url('/')}}">Home
+                    <a class="nav-link text-light" href="{{url('/')}}">Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link text-light" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
+                        <a class="nav-link text-light" href="#">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link text-light" href="#">Contact</a>
                     </li>
 
                     {{-- Auth --}}
                     @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('user_login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link text-light" href="{{ url('user_login') }}">{{ __('Login') }}</a>
                     </li>
                     @else
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link text-light dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </a>
 
@@ -82,7 +82,7 @@
                     </li>
                     @endguest
                     <li class="nav-item">
-                    <a class="nav-link" href="{{route('cartpage')}}">
+                    <a class="nav-link text-light" href="{{route('cartpage')}}">
                             <i class="fas fa-shopping-cart"></i>
                             <span class="cartNoti badge badge-light badge-pill">0</span>
                         </a>
@@ -97,12 +97,11 @@
     <!-- /.container -->
 
     <!-- Footer -->
-    {{-- <footer class="py-5 bg-dark">
+    <footer class="py-5 mainColor myFont text-muted">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+            <p class="m-0 text-center text-white">Copyright &copy; shopules laravel 7 created by 2amCoders</p>
         </div>
-        <!-- /.container -->
-    </footer> --}}
+    </footer> 
 
     <!-- Bootstmy_my_asset/vendor/bootstrap/js/bootstrap.bundle.min.jsasset/vendor/bootstrap/js/bootstrap.bundle.min.jsrap core JavaScript -->
     <script src="{{ asset('my_asset/vendor/jquery/jquery.min.js') }}"></script>

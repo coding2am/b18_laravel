@@ -1,7 +1,7 @@
 <div class="accordion mt-4" id="accordionExample">
     @php $i=1; @endphp
     @foreach ($categories as $category)
-        <div class="card table-bordered border-dark">
+        <div class="card table-bordered border-dark myFont">
             <div class="card-header bg-light" id="headingOne">
                 <h2 class="mb-0">
                     <button class="nh_btn text-decoration-none text-dark btn btn-link btn-block text-left" type="button"

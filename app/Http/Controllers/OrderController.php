@@ -63,7 +63,7 @@ class OrderController extends Controller
         $order->orderno = $orderno;
         $order->order_date = $date;
         $order->total_amount = $totalAmount;
-        $order->notes = $notes;
+        $order->notes = $notes; 
         $order->user_id = Auth::id();
         $order->save();
 
