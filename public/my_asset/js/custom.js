@@ -3,7 +3,6 @@ $(document).ready(function(){
     showData();
     count();
 
-
     //add to cart btn
     $('.addtocartBtn').click(function()
     {
@@ -216,5 +215,22 @@ $(document).ready(function(){
             showData();
             count();
         }
+    });
+
+    
+    $('.checkoutBtn').click(function(){
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    let notes = $('.notes').val();
+    let order = localStorage.getItem("item");
+
+    $.post("/order",{order:order,notes:notes},function(response){
+        console.log(response);
+    });
     });
 });

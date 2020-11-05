@@ -1,5 +1,6 @@
 @extends('layouts.frontendtemplate')
 @section('title', 'cart')
+
 @section('content')
 <!-- Content -->
 <div class="container mt-5">
@@ -19,12 +20,14 @@
                 <tfoot>
                     <tr>
                         <td colspan="5">
-                            <textarea class="form-control" id="notes" placeholder="Any Request..."></textarea>
+                            <textarea class="form-control notes" id="notes" placeholder="Any Request..."></textarea>
                         </td>
                         <td colspan="3">
-                                <button class="btn btn-outline-info btn-block mainfullbtncolor checkoutbtn">
-                                    Check Out
+                               @role('customer')
+                                <button class="btn btn-outline-info btn-block mainfullbtncolor checkoutBtn">
+                                        Check Out
                                 </button>
+                               @endrole
                         </td>
                     </tr>
                 </tfoot>
@@ -49,5 +52,8 @@
     </div>
 
 </div>
+@endsection
 
+@section('script')
+<script src="{{ asset('my_asset/js/custom.js') }}"></script>
 @endsection

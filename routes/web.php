@@ -33,3 +33,6 @@ Route::resource('user', 'UserController');
 
 //auth
 Auth::routes(['register' => false]);
+
+//order
+Route::resource('order', 'OrderController');

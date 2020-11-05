@@ -3,6 +3,7 @@
 
 <head>
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -106,7 +107,7 @@
     <!-- Bootstmy_my_asset/vendor/bootstrap/js/bootstrap.bundle.min.jsasset/vendor/bootstrap/js/bootstrap.bundle.min.jsrap core JavaScript -->
     <script src="{{ asset('my_asset/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('my_asset/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('my_asset/js/custom.js') }}"></script>
+    @yield('script')
 
 </body>
 
