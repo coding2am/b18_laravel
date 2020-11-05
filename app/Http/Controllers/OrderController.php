@@ -75,7 +75,7 @@ class OrderController extends Controller
             ]);
         }
 
-        return "Successful";
+        return "success";
 
     }
 
@@ -131,6 +131,7 @@ class OrderController extends Controller
 
         return redirect()->route('order.index');
     }
+
     public function cancle($id)
     {
         $order = Order::find($id);
@@ -138,4 +139,5 @@ class OrderController extends Controller
 
         return redirect()->route('order.index');
     }
+
 }

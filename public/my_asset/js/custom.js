@@ -231,6 +231,8 @@ $(document).ready(function(){
 
     $.post("/order",{order:order,notes:notes},function(response){
         console.log(response);
+        localStorage.clear();
+        window.location.replace('order_success');
     });
     });
 });

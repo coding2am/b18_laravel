@@ -44,4 +44,9 @@ class FrontendController extends Controller
     {
         return view('frontend.cart');
     }
+
+    public function success()
+    {
+        return view('order.accept');
+    }
 }

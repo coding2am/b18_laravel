@@ -97,7 +97,7 @@
     <!-- /.container -->
 
     <!-- Footer -->
-    <footer class="py-5 mainColor myFont text-muted">
+    <footer class="py-5 mainColor myFont text-muted mt-5">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright &copy; shopules laravel 7 created by 2amCoders</p>
         </div>

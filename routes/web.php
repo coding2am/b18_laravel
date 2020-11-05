@@ -27,6 +27,7 @@ Route::get('/item_detail/{id}', 'FrontendController@itemDetail')->name('itemdeta
 Route::get('itemsBySubCategory/{id}', 'FrontendController@itemsBySubCategory')->name('itemsBySubCategory');
 
 Route::get('cart', 'FrontendController@cart')->name('cartpage');
+Route::get('order_success','FrontendController@success');
 
 //user-controller
 Route::resource('user', 'UserController');
@@ -38,3 +39,4 @@ Auth::routes();
 Route::resource('order', 'OrderController');
 Route::get('order/{id}/confirm','OrderController@confirm');
 Route::get('order/{id}/cancle','OrderController@cancle');
+

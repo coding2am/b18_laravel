@@ -44,7 +44,7 @@ class LoginController extends Controller
         switch($roles)
         {
             case 'admin':
-                return 'item';
+                return 'order';
             break;
 
            default:
