@@ -15,7 +15,11 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $pending_orders = Order::where('status',0)->get();
+        $confirmed_orders = Order::where('status',1)->get();
+
+        return view('order.index',compact('pending_orders','confirmed_orders'));
+
     }
 
     /**
@@ -118,5 +122,20 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+    public function confirm($id)
+    {
+        $order = Order::find($id);
+        $order->status = 1;
+        $order->save();
+
+        return redirect()->route('order.index');
+    }
+    public function cancle($id)
+    {
+        $order = Order::find($id);
+        $order->delete();
+
+        return redirect()->route('order.index');
     }
 }

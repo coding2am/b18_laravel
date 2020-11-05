@@ -8,17 +8,16 @@ use Illuminate\Support\Facades\Route;
 // Route::get('about', 'MainController@about')->name('aboutpage');
 // Route::get('contact', 'MainController@contact')->name('contactpage');
 
-//brands
-Route::resource('brand', 'BrandController');
 
-//categories
-Route::resource('category', 'CategoryController');
+Route::middleware('role:admin')->group(function(){
+    //CRUD BACKEND
+    Route::resource('brand', 'BrandController');
+    Route::resource('category', 'CategoryController');
+    Route::resource('subcategory', 'SubCategoryController');
+    Route::resource('item', 'ItemController');
+});
 
-//subcategories
-Route::resource('subcategory', 'SubCategoryController');
 
-//item
-Route::resource('item', 'ItemController');
 
 //frontend-asset
 Route::get('/', 'FrontendController@index')->name('homepage');
@@ -26,6 +25,7 @@ Route::get('/user_login', 'FrontendController@login')->name('loginpage');
 Route::get('/user_register', 'FrontendController@register')->name('registerpage');
 Route::get('/item_detail/{id}', 'FrontendController@itemDetail')->name('itemdetail');
 Route::get('itemsBySubCategory/{id}', 'FrontendController@itemsBySubCategory')->name('itemsBySubCategory');
+
 Route::get('cart', 'FrontendController@cart')->name('cartpage');
 
 //user-controller
@@ -36,3 +36,5 @@ Auth::routes(['register' => false]);
 
 //order
 Route::resource('order', 'OrderController');
+Route::get('order/{id}/confirm','OrderController@confirm');
+Route::get('order/{id}/cancle','OrderController@cancle');

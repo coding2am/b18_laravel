@@ -139,6 +139,18 @@
           }
           @endphp
           "><i class="app-menu__icon fa fa-th"></i><span class="app-menu__label">Item</span></a></li>
+
+        <li><a href="{{ asset(route('order.index'))}}" class="app-menu__item 
+        {{-- order --}}
+        @php
+        $word = "order";
+        $key = Route::currentRouteName();
+        if(strpos($key, $word) !== false)
+        {
+        echo "active";
+        }
+        @endphp
+        "><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Order</span></a></li>
       </ul>
     </aside>
     

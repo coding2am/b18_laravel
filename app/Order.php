@@ -21,4 +21,8 @@ class Order extends Model
                     ->withPivot('qty')
                     ->withTimestamps();
     }
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
