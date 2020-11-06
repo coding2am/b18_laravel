@@ -20,14 +20,14 @@
                 <tfoot>
                     <tr>
                         <td colspan="5">
-                            <textarea class="form-control notes" id="notes" placeholder="Any Request..."></textarea>
+                            <textarea class="form-control notes" id="notes" placeholder="Any Request..." required></textarea>
                         </td>
                         <td colspan="3">
-                               @role('customer')
+                                @role('customer')
                                 <button class="btn btn-outline-info btn-block mainfullbtncolor checkoutBtn">
                                         Check Out
                                 </button>
-                               @endrole
+                                @endrole
                         </td>
                     </tr>
                 </tfoot>

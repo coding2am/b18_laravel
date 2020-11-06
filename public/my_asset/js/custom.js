@@ -217,7 +217,7 @@ $(document).ready(function(){
         }
     });
 
-    
+     //checkout btn
     $('.checkoutBtn').click(function(){
 
     $.ajaxSetup({
@@ -229,10 +229,18 @@ $(document).ready(function(){
     let notes = $('.notes').val();
     let order = localStorage.getItem("item");
 
-    $.post("/order",{order:order,notes:notes},function(response){
-        console.log(response);
-        localStorage.clear();
-        window.location.replace('order_success');
+    if(notes == "")
+    {
+        window.location.replace('cart');
+    }
+    else
+    {
+        $.post("/order",{order:order,notes:notes},function(response){
+            console.log(response);
+            localStorage.clear();
+            window.location.replace('order_success');
+        }); 
+    }
     });
-    });
+
 });

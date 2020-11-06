@@ -16,6 +16,24 @@
       <div class="col-md-12">
         <div class="tile">
           <h2 class="d-inline-block">Order List</h2>
+
+          {{-- date search --}}
+          <form action="">
+            <div class="form-row">
+              <div class="col-md-4">
+                <label for="fromDate">From</label>
+                <input type="date" name="from" class="form-control" id="fromDate">
+              </div>
+              <div class="col-md-4">
+                <label for="toDate">To</label>
+                <input type="date" name="to" class="form-control" id="toDate">
+              </div>
+              <div class="col-md-4">
+                <label for="search"></label><br>
+                <button id="search" type="submit" class="btn btn-primary mt-2" name="btnsubmit"><i class="fa fa-search" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </form>
           
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
@@ -66,9 +84,8 @@
                         </div>
                     </td>
                     <td>
-                    <a href="{{url('order/'.$row->id.'/confirm')}}" class="btn btn-outline-primary" onclick="return confirm('Are you sure ?')">Confirm</a>
+                      <a href="{{route('order.show',$row->id)}}" class="btn btn-outline-info">Detail</a> 
                       <a href="{{url('order/'.$row->id.'/cancle')}}" class="btn btn-outline-danger" onclick="return confirm('Are you sure ?')">Cancle</a>
-
                     </td>
                   </tr>
                   @endforeach
@@ -84,6 +101,7 @@
                     <th>Orderdate</th>
                     <th>Total Amount</th>
                     <th>Customer Name</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -112,6 +130,9 @@
                         <div class="text-primary font-weight-bold">
                             {{$row->user->name}}
                         </div>
+                    </td>
+                    <td>
+                      <a href="{{route('order.show',$row->id)}}" class="btn btn-outline-info">Detail</a> 
                     </td>
                   </tr>
                   @endforeach
