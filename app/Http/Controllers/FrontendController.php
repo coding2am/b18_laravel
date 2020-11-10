@@ -7,13 +7,18 @@ use App\Item;
 use App\Brand;
 use App\Category;
 use App\SubCategory;
+use Illuminate\Pagination\Paginator;
 
 class FrontendController extends Controller
 {
     public function index()
     {
+        $brands = Brand::paginate(8);
         $items = Item::all();
-        return view('frontend.mainpage', compact('items'));
+        $randomItems = $items->random(4);
+        $discountItems = Item::where('discount', '!=', 0)->paginate(4);
+        $covidItems = Item::where('subcategory_id', '8')->paginate(4);
+        return view('frontend.mainpage', compact('randomItems', 'discountItems', 'covidItems', 'brands'));
     }
 
     public function login()

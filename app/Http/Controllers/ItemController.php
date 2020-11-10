@@ -9,18 +9,18 @@ use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
-    
+
     public function index()
     {
         $items = Item::all();
-        return view('item.index',compact('items'));
+        return view('item.index', compact('items'));
     }
 
     public function create()
     {
         $subcategories  = SubCategory::all();
         $brands  = Brand::all();
-        return view('item.create',compact('brands','subcategories'));
+        return view('item.create', compact('brands', 'subcategories'));
     }
 
     public function store(Request $request)
@@ -31,14 +31,13 @@ class ItemController extends Controller
             "price" => "required",
         ]);
         //photo
-        if($request->file())
-        {
-            $fileName = time().'_'.$request->file('photo')->getClientOriginalName();
-            $filePath = $request->file('photo')->storeAs('item',$fileName,'public');
-            $path = '/storage/'.$filePath;
+        if ($request->file()) {
+            $fileName = time() . '_' . $request->file('photo')->getClientOriginalName();
+            $filePath = $request->file('photo')->storeAs('item', $fileName, 'public');
+            $path = '/storage/' . $filePath;
         }
         //codeono
-        $codeno = "AGDNB".mt_rand(100000,900000);
+        $codeno = "AGDNB" . mt_rand(100000, 900000);
 
         $item = new Item();
         $item->name = $request->name;
@@ -46,8 +45,7 @@ class ItemController extends Controller
         $item->photo = $path;
         $item->price = $request->price;
         //checking discount
-        if(!empty($request->discount))
-        {
+        if (!empty($request->discount)) {
             $item->discount = $request->discount;
         }
         $item->description = $request->description;
@@ -62,14 +60,14 @@ class ItemController extends Controller
     {
         $brands = Brand::all();
         $subcategories = SubCategory::all();
-        return view('item.show',compact('item','brands','subcategories'));
+        return view('item.show', compact('item', 'brands', 'subcategories'));
     }
 
     public function edit(Item $item)
     {
         $brands = Brand::all();
         $subcategories = SubCategory::all();
-        return view('item.edit',compact('item','brands','subcategories'));
+        return view('item.edit', compact('item', 'brands', 'subcategories'));
     }
 
     public function update(Request $request, Item $item)
@@ -81,15 +79,12 @@ class ItemController extends Controller
             "price" => "required",
         ]);
 
-        if($request->file())
-        {
+        if ($request->file()) {
             unlink(public_path($request->oldphoto));
-            $fileName = time().'_'.$request->file('photo')->getClientOriginalName();
-            $filePath = $request->file('photo')->storeAs('item',$fileName,'public');
-            $path = '/storage/'.$filePath;
-        }
-        else
-        {
+            $fileName = time() . '_' . $request->file('photo')->getClientOriginalName();
+            $filePath = $request->file('photo')->storeAs('item', $fileName, 'public');
+            $path = '/storage/' . $filePath;
+        } else {
             $path = $request->oldphoto;
         }
         // $item = Item::find($id);
@@ -98,8 +93,7 @@ class ItemController extends Controller
         $item->photo = $path;
         $item->price = $request->price;
         //checking discount
-        if(!empty($request->discount))
-        {
+        if (!empty($request->discount)) {
             $item->discount = $request->discount;
         }
         $item->description = $request->description;
@@ -108,7 +102,6 @@ class ItemController extends Controller
         $item->save();
 
         return redirect()->route('item.index');
-
     }
 
     /**

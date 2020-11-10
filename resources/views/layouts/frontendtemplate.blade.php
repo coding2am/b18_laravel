@@ -17,11 +17,11 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('my_asset/css/shop-homepage.css') }}" rel="stylesheet">
 
-     <!-- Custom CSS -->
-     <link rel="stylesheet" href="{{ asset('my_asset/css/custom.css') }}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('my_asset/css/custom.css') }}">
 
-     <!-- Fontawesome CSS -->
-     <link rel="stylesheet" href="{{ asset('my_asset/css/all.min.css') }}">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="{{ asset('my_asset/css/all.min.css') }}">
 </head>
 
 <body>
@@ -37,7 +37,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto myFont">
                     <li class="nav-item active">
-                    <a class="nav-link text-light" href="{{url('/')}}">Home
+                        <a class="nav-link text-light" href="{{ url('/') }}">Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -53,36 +53,36 @@
 
                     {{-- Auth --}}
                     @guest
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="{{ url('user_login') }}">{{ __('Login') }}</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{{ url('user_login') }}">{{ __('Login') }}</a>
+                        </li>
                     @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link text-light dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            
-                            @if(Auth::user()->getRoleNames()[0] == "admin")
-                            <a class="dropdown-item" href="{{ url('/item') }}">Admin Panel</a>
-                            @else
-                            @endif
-
-                            <a class="dropdown-item" href="{{ route('logout') }}" 
-                               onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link text-light dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                @if (Auth::user()->getRoleNames()[0] == 'admin')
+                                    <a class="dropdown-item" href="{{ url('/item') }}">Admin Panel</a>
+                                @else
+                                @endif
+
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                     @endguest
                     <li class="nav-item">
-                    <a class="nav-link text-light" href="{{route('cartpage')}}">
+                        <a class="nav-link text-light" href="{{ route('cartpage') }}">
                             <i class="fas fa-shopping-cart"></i>
                             <span class="cartNoti badge badge-light badge-pill">0</span>
                         </a>
@@ -101,7 +101,7 @@
         <div class="container">
             <p class="m-0 text-center text-white">Copyright &copy; shopules laravel 7 created by 2amCoders</p>
         </div>
-    </footer> 
+    </footer>
 
     <!-- Bootstmy_my_asset/vendor/bootstrap/js/bootstrap.bundle.min.jsasset/vendor/bootstrap/js/bootstrap.bundle.min.jsrap core JavaScript -->
     <script src="{{ asset('my_asset/vendor/jquery/jquery.min.js') }}"></script>

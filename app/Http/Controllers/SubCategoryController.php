@@ -12,13 +12,13 @@ class SubCategoryController extends Controller
     public function index()
     {
         $subcategories = SubCategory::all();
-        return view('subcategory.index',compact('subcategories'));
+        return view('subcategory.index', compact('subcategories'));
     }
 
     public function create()
     {
         $categories = Category::all();
-        return view('subcategory.create',compact('categories'));
+        return view('subcategory.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -26,29 +26,29 @@ class SubCategoryController extends Controller
         $request->validate([
             "name" => "required|min:2",
         ]);
-        
-            $subCategory = new SubCategory();
-            //inserting
-            $subCategory = new SubCategory();
-            $subCategory->name = $request->name;
-            $subCategory->category_id = $request->category;
-            $subCategory->save();
-            //redirect
-            return redirect()->route('subcategory.index');
+
+        $subCategory = new SubCategory();
+        //inserting
+        $subCategory = new SubCategory();
+        $subCategory->name = $request->name;
+        $subCategory->category_id = $request->category;
+        $subCategory->save();
+        //redirect
+        return redirect()->route('subcategory.index');
     }
 
     public function show(SubCategory $subCategory, $id)
     {
         $subCategory = SubCategory::find($id);
         $categories = Category::all();
-        return view('subcategory.show',compact('subCategory','categories'));
+        return view('subcategory.show', compact('subCategory', 'categories'));
     }
 
     public function edit(SubCategory $subCategory, $id)
     {
         $subCategory = SubCategory::find($id);
         $categories = Category::all();
-        return view('subcategory.edit',compact('subCategory','categories'));
+        return view('subcategory.edit', compact('subCategory', 'categories'));
     }
 
     public function update(Request $request, SubCategory $subCategory, $id)
@@ -57,7 +57,7 @@ class SubCategoryController extends Controller
             "name" => "required|min:2",
         ]);
         $subCategory = SubCategory::find($id);
-        
+
         $subCategory->name = $request->name;
         $subCategory->category_id = $request->category;
         $subCategory->save();

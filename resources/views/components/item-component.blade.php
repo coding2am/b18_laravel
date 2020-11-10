@@ -1,4 +1,4 @@
-<div class="col-lg-4 col-md-6 mb-4 myFont">
+<div class="col-lg-3 col-md-4 mb-4 myFont">
     <div class="card h-100">
         <a href="{{ route('itemdetail', $item->id) }}"><img width="200" height="200" style="object-fit: cover;"
                 class="card-img-top img_hover" src="{{ asset($item->photo) }}" alt=""></a>
@@ -27,14 +27,9 @@
             <p class="card-text text-muted">{{ $item->description }}</p>
         </div>
         <div class="card-footer">
-            <button class="btn btn-block btn-info addtocartBtn" 
-                 data-id="{{$item->id}}"
-                 data-name="{{$item->name}}"
-                 data-codeno="{{$item->codeno}}"
-                 data-photo="{{asset($item->photo)}}"
-                 data-price="{{$item->price}}"
-                 data-discount="{{$item->discount}}"
-                <i class="fas fa-shopping-cart mr-2"></i>Add to cart
+            <button class="btn btn-block btn-info addtocartBtn" data-id="{{ $item->id }}" data-name="{{ $item->name }}"
+                data-codeno="{{ $item->codeno }}" data-photo="{{ asset($item->photo) }}" data-price="{{ $item->price }}"
+                data-discount="{{ $item->discount }}" <i class="fas fa-shopping-cart mr-2"></i>Add to cart
             </button>
         </div>
     </div>

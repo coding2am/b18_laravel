@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('contact', 'MainController@contact')->name('contactpage');
 
 
-Route::middleware('role:admin')->group(function(){
+Route::middleware('role:admin')->group(function () {
     //CRUD BACKEND
     Route::resource('brand', 'BrandController');
     Route::resource('category', 'CategoryController');
@@ -27,7 +27,7 @@ Route::get('/item_detail/{id}', 'FrontendController@itemDetail')->name('itemdeta
 Route::get('itemsBySubCategory/{id}', 'FrontendController@itemsBySubCategory')->name('itemsBySubCategory');
 
 Route::get('cart', 'FrontendController@cart')->name('cartpage');
-Route::get('order_success','FrontendController@success');
+Route::get('order_success', 'FrontendController@success');
 
 //user-controller
 Route::resource('user', 'UserController');
@@ -37,6 +37,5 @@ Auth::routes();
 
 //order
 Route::resource('order', 'OrderController');
-Route::get('order/{id}/confirm','OrderController@confirm');
-Route::get('order/{id}/cancle','OrderController@cancle');
-
+Route::get('order/{id}/confirm', 'OrderController@confirm');
+Route::get('order/{id}/cancle', 'OrderController@cancle');
